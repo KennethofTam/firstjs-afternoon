@@ -37,7 +37,7 @@ var buildColorDiv = function(color) {
   */
 var buildList = function(listValues) {
   var dl = document.createElement('dl');
-  dl.style.borderColor = 'red';
+  dl.style.border = '1px solid red';
   dl.innerHTML = buildListItem('First Name', listValues.firstName) +
   buildListItem('Hair Color', listValues.hairColor) +
   buildListItem('Age', listValues.age) +
