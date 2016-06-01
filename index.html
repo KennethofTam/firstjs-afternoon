@@ -1,28 +1,92 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Baby's First JavaScript</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
   </head>
+
+<!-- Inserted code -->
+  <form method = "post">
+    <p>
+      <label for = "firstName">First Name </label>
+        <input type = "text" name = "firstName" placeholder="ex. John Doe">
+    </p>
+
+    <p>
+      <label for="hairColor">Hair Color</label>
+      <input type="color" name="hairColor">
+    </p>
+
+    <p>
+      <label for="age">Age</label>
+      <input type="number" name="age" placeholder="18+ Only">
+    </p>
+
+    <p>
+      <label for="birthplace">Birthplace</label>
+      <!-- Required is a keyword which makes the field mandatory -->
+        <input type="text" name="birthplace" placeholder="Where were you born?" required>
+    </p>
+    <p>
+      <!-- <input type="button" value="Go"> -->
+      <!-- Button needs to be inside the form -->
+      <button type="submit">Go</button>
+    </p>
+  </form>
+
+<div class="details">
+  <dl id='root_dl'>
+      <!--li>
+          <dt>First Name</dt>
+          <dd class = "dl_first_name"></dd>
+      </li>
+      <li>
+          <dt>Hair Color</dt>
+          <dd class = "dl_hair_color"></dd>
+      </li-->
+  </dl>
+
+</div>
+
+
+  <script type="text/javascript">
+    var myForm = document.querySelector('form');
+    myForm.onsubmit = function(ev) {
+      //Include the following line to debug code
+      //debugger;
+      // preventDefault will allow the console output to stay on the screen
+      // instead of flashing for only a little bit
+      ev.preventDefault();
+      var details = document.querySelector('div.details');
+
+      var test_name = document.querySelector('dd.dl_first_name');
+      //details.innerText = this.firstName.value;
+      //details.innerHTML += '<p>' + this.firstName.value + '</p>';
+
+      //The following linse will append the list entries into the definition
+      //list(dl) inside of the div 'details'
+      //The dl has been assigned the unique id 'root_dl'
+      document.querySelector('#root_dl').innerHTML = '<li><dt>First name</dt><dd>' + this.firstName.value + '</dd></li>'
+      document.querySelector('#root_dl').innerHTML += '<li><dt>Hair Color</dt><dd>' + this.hairColor.value + '</dd></li>'
+      document.querySelector('#root_dl').innerHTML += '<li><dt>Age</dt><dd>' + this.age.value + '</dd></li>'
+      document.querySelector('#root_dl').innerHTML += '<li><dt>Birthplace</dt><dd>' + this.birthplace.value + '</dd></li>'
+
+      console.log(this.firstName.value);
+
+    };
+  </script>
+
+
+<!-- end of inserted code -->
   <body>
-    <h1>My Cool Page</h1>
-
-    <p id = "radical">
-      Radical content
-    </p>
-
-    <p class = "eh">
-      I'm not crazy bout memes though
-    </p>
-
-    <p class = "eh">
-      Pbthhhhhhhhhhhhhhhhhhhhhhhh
-    </p>
-    <script type = "text/javascript">
-      //querySelector -> gets first
-      //querySelectorAll -> gets all
-      var cool_text = document.querySelector('h1').innerText;
-      console.log(cool_text);
-    </script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
